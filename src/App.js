@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Dropdown />
+      <Dropdown options={creatureData}/>
       <ImageList creatures={creatureData}/>
     </div>
   );
