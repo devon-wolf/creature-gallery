@@ -4,7 +4,7 @@ import style from './DropdownItem.module.css'
 export default class DropdownItem extends Component {
 	render() {
 		return (
-			<option className={style.dropdownItem}>
+			<option className={style.dropdownItem} value={this.props.keyword}>
 				{this.props.keyword}
 			</option>
 		)
