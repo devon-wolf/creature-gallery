@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import ImageItem from './ImageItem.js'
+import style from './ImageList.module.css'
 
 export default class ImageList extends Component {
 	render() {
 		return (
-			<ul>
+			<ul className={style.list}>
 				<ImageItem />
 				<ImageItem />
 				<ImageItem />
