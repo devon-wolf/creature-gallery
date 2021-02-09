@@ -1,0 +1,4 @@
+.strikeout {
+	text-decoration: line-through;
+	color: rgba(128, 128, 128, 0.5);
+}
