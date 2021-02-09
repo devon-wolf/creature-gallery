@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <ImageList creatures={creatureData.length}/>
+      <ImageList creatures={creatureData}/>
     </div>
   );
 }

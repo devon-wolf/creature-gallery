@@ -6,7 +6,7 @@ export default class ImageList extends Component {
 	render() {
 		return (
 			<ul className={style.list}>
-				{this.props.creatures}
+				{this.props.creatures.map(creature => <ImageItem />)}
 			</ul>
 		)
 	}
