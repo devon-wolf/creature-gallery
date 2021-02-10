@@ -28,12 +28,23 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Dropdown label="Creature:" options={creatureData} property="keyword" handleChange={
+
+        <Dropdown 
+        label="Creature:" 
+        options={creatureData} 
+        property="keyword" 
+        handleChange={
           (e) => { this.setState({ keyword: e.target.value })}
         }/>
-        <Dropdown label="Number of horns:" options={creatureData} property="horns" handleChange={
+
+        <Dropdown 
+        label="Number of horns:" 
+        options={creatureData} 
+        property="horns" 
+        handleChange={
           (e) => { this.setState({ horns: e.target.value })}
         }/>
+        
         <ImageList creatures={filteredTwice} />
       </div>
     );
