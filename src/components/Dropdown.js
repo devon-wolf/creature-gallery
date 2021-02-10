@@ -25,13 +25,16 @@ export default class Dropdown extends Component {
 		}
 
 		return (
-			<select 
-			className={style.dropdown} 
-			value={this.props.keyword} 
-			onChange={this.props.handleChange}>
-				{getUniqueListItems(this.props.property).map(
-					n => <DropdownItem keyword={n} key={n}/>)}
-			</select>
+			<label className={style.dropdownLabel}>
+				{this.props.label}
+				<select 
+				className={style.dropdown} 
+				value={this.props.keyword} 
+				onChange={this.props.handleChange}>
+					{getUniqueListItems(this.props.property).map(
+						n => <DropdownItem keyword={n} key={n}/>)}
+				</select>
+			</label>
 		)
 	}
 }
