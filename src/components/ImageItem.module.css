@@ -1,0 +1,11 @@
+.li {
+	list-style: none;
+}
+
+.img {
+	max-width: 100vw;
+	max-height: 50vh;
+	width: 100%;
+	height: 100%;
+	border: solid 2px lightsteelblue;
+}

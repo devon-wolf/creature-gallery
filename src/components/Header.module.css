@@ -1,0 +1,14 @@
+.header {
+	background-color: rgb(49, 49, 83);
+	color: lightsteelblue;
+	padding: 1rem;
+}
+
+.header h1 {
+	margin: 0;
+}
+
+.strikeout {
+	text-decoration: line-through;
+	color: rgba(128, 128, 128, 0.5);
+}
