@@ -8,8 +8,9 @@ export default class Dropdown extends Component {
 			<select 
 			className={style.dropdown} 
 			value={this.props.keyword} 
-			onChange={this.props.stateFunction}>
-				{this.props.options.map(option => <DropdownItem keyword={option.keyword} />)}
+			onChange={this.props.handleChange}>
+				{this.props.options.map(
+					option => <DropdownItem keyword={option.keyword} key={option.url}/>)}
 			</select>
 		)
 	}

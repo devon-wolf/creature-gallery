@@ -18,12 +18,13 @@ export default class App extends React.Component {
 		});
 
     return (
-    <div className="App">
-      <Header />
-      <Dropdown options={creatureData} stateFunction={ (e) => {
-	        this.setState({ keyword: e.target.value }) }}/>
-      <ImageList creatures={filteredCreatures} />
-    </div>
+      <div className="App">
+        <Header />
+        <Dropdown options={creatureData} handleChange={
+          (e) => { this.setState({ keyword: e.target.value })}
+        }/>
+        <ImageList creatures={filteredCreatures} />
+      </div>
     );
   }
 }
