@@ -6,12 +6,23 @@ import ImageList from './components/ImageList.js';
 import Dropdown from './components/Dropdown.js';
 
 export default class App extends React.Component {
+  state = {
+      keyword: ''
+      }
+
   render() {
+    const filteredCreatures = creatureData.filter(
+      creature => {
+			if (!this.state.keyword) return true;
+			return creature.keyword === this.state.keyword;
+		});
+
     return (
     <div className="App">
       <Header />
-      <Dropdown options={creatureData} />
-      <ImageList creatures={creatureData} />
+      <Dropdown options={creatureData} stateFunction={ (e) => {
+	        this.setState({ keyword: e.target.value }) }}/>
+      <ImageList creatures={filteredCreatures} />
     </div>
     );
   }
