@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import creatureData from './data/image-data.js';
+import { filterByStringAndNumber } from './components/utils/utils.js'
 import Header from './components/Header.js';
 import ImageList from './components/ImageList.js';
 import Dropdown from './components/Dropdown.js';
@@ -12,18 +13,7 @@ export default class App extends React.Component {
       }
 
   render() {
-    const filteredForKeyword = creatureData.filter(
-      creature => {
-			if (!this.state.keyword) return true;
-      return creature.keyword === this.state.keyword;
-		});
-
-    const filteredTwice = filteredForKeyword.filter(
-      creature => {
-        if (!this.state.horns) return true;
-        return creature.horns === Number(this.state.horns);
-      }
-    );
+    const filteredData = filterByStringAndNumber(this, 'keyword', 'horns', creatureData);
 
     return (
       <div className="App">
@@ -44,8 +34,8 @@ export default class App extends React.Component {
         handleChange={
           (e) => { this.setState({ horns: e.target.value })}
         }/>
-        
-        <ImageList creatures={filteredTwice} />
+
+        <ImageList creatures={filteredData} />
       </div>
     );
   }
