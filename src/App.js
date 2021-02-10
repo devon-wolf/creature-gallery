@@ -7,7 +7,8 @@ import Dropdown from './components/Dropdown.js';
 
 export default class App extends React.Component {
   state = {
-      keyword: ''
+      keyword: '',
+      horns: ''
       }
 
   render() {
@@ -20,8 +21,11 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Dropdown options={creatureData} handleChange={
+        <Dropdown options={creatureData} property="keyword" handleChange={
           (e) => { this.setState({ keyword: e.target.value })}
+        }/>
+        <Dropdown options={creatureData} property="horns" handleChange={
+          (e) => { this.setState({ horns: e.target.value })}
         }/>
         <ImageList creatures={filteredCreatures} />
       </div>

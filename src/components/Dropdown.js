@@ -4,14 +4,24 @@ import DropdownItem from './DropdownItem.js'
 
 export default class Dropdown extends Component {
 	render() {
-		const getUniqueKeywords = () => {
-			let keywords = [];
-			for (let i of this.props.options) {
-				if (!keywords.some(word => word === i.keyword)) {
-					keywords.push(i.keyword);
+		const getUniqueListItems = (property) => {
+			let listItems = [];
+			if (property === 'keyword') {
+				for (let i of this.props.options) {
+					if (!listItems.some(n => n === i.keyword)) {
+					listItems.push(i.keyword);
+					}
 				}
 			}
-			return keywords;
+			else if (property === 'horns') {
+				for (let i of this.props.options) {
+					if (!listItems.some(n => n === i.horns)) {
+						listItems.push(i.horns);
+					}
+				}
+			}
+
+			return listItems;
 		}
 
 		return (
@@ -19,7 +29,7 @@ export default class Dropdown extends Component {
 			className={style.dropdown} 
 			value={this.props.keyword} 
 			onChange={this.props.handleChange}>
-				{getUniqueKeywords().map(
+				{getUniqueListItems(this.props.property).map(
 					keyword => <DropdownItem keyword={keyword} key={keyword}/>)}
 			</select>
 		)
