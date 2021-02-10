@@ -12,11 +12,34 @@ export default class App extends React.Component {
       }
 
   render() {
-    const filteredCreatures = creatureData.filter(
+    const filteredForKeyword = creatureData.filter(
       creature => {
 			if (!this.state.keyword) return true;
-			return creature.keyword === this.state.keyword;
+      return creature.keyword === this.state.keyword;
 		});
+
+    const filteredForHorns = creatureData.filter(
+      creature => {
+        if (!this.state.horns) return true;
+        return creature.horns === Number(this.state.horns);
+    });
+
+    const filterForBoth = (creature) => {
+      if (!this.state.keyword && !this.state.horns) return true;
+
+      else if (this.state.keyword && this.state.horns) {
+        return filteredForKeyword.filter(
+          creature => filteredForHorns.some(i => i === creature)
+        );
+      }
+    }
+    
+    // filteredForKeyword.filter(
+    //   creature => {
+    //     return filteredForHorns.some(i => i === creature);
+    //   }
+    // );
+    // console.log(filteredForBoth);
 
     return (
       <div className="App">
@@ -27,7 +50,7 @@ export default class App extends React.Component {
         <Dropdown options={creatureData} property="horns" handleChange={
           (e) => { this.setState({ horns: e.target.value })}
         }/>
-        <ImageList creatures={filteredCreatures} />
+        <ImageList creatures={filteredForHorns} />
       </div>
     );
   }

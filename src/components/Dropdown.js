@@ -30,7 +30,7 @@ export default class Dropdown extends Component {
 			value={this.props.keyword} 
 			onChange={this.props.handleChange}>
 				{getUniqueListItems(this.props.property).map(
-					keyword => <DropdownItem keyword={keyword} key={keyword}/>)}
+					n => <DropdownItem keyword={n} key={n}/>)}
 			</select>
 		)
 	}
